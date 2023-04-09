@@ -1,0 +1,40 @@
+.list {
+  width: 400px;
+  margin-left: 24px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  align-items: center;
+  padding-left: 15px;
+  color: blue;
+
+  background-color: rgb(220, 255, 78);
+
+  border-radius: 5px;
+  border: 2px solid blue;
+}
+
+.item__button {
+  border-style: none;
+  color: #fff;
+  background-color: cornflowerblue;
+  cursor: pointer;
+}
+
+.item__button:hover {
+  background-color: blue;
+}
+
+.container {
+  text-align: center;
+
+  margin-top: 20px;
+}
