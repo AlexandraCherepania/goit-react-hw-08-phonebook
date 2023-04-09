@@ -1,7 +1,7 @@
 .list {
   width: 400px;
   margin-left: 24px;
-  display: inline-flex;
+  display: flex;
   flex-direction: column;
   gap: 10px;
   list-style: none;
@@ -12,29 +12,22 @@
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  align-items: center;
-  padding-left: 15px;
-  color: blue;
 
-  background-color: rgb(220, 255, 78);
+  padding-left: 5px;
+
+  background-color: rgb(46, 158, 173);
 
   border-radius: 5px;
-  border: 2px solid blue;
+  border: 2px rgb(46, 158, 173);
 }
 
 .item__button {
   border-style: none;
   color: #fff;
-  background-color: cornflowerblue;
+  background-color: rgb(46, 158, 173);
   cursor: pointer;
 }
 
 .item__button:hover {
-  background-color: blue;
-}
-
-.container {
-  text-align: center;
-
-  margin-top: 20px;
+  background-color: rgb(46, 158, 173);
 }

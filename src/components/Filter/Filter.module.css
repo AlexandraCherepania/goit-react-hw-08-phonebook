@@ -1,6 +1,18 @@
-.container {
+.imputName {
   display: flex;
-  justify-content: center;
 
-  margin-top: 20px;
+  width: 150px;
+
+  border: 2px solid rgb(20, 114, 127);
+
+  border-radius: 4px;
+
+  outline: transparent;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-left: 20px;
 }

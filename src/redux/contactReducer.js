@@ -17,7 +17,7 @@ const contactsReducer = createSlice({
     },
   },
   extraReducers: {
-    // Fecth Contact
+    // Fecth
     [fetchContacts.pending]: state => {
       state.contacts.isLoading = true;
     },
@@ -29,7 +29,7 @@ const contactsReducer = createSlice({
       state.contacts.isLoading = false;
       state.contacts.error = payload;
     },
-    // Add Contact
+    // Add 
     [addContact.pending]: state => {
       state.contacts.isLoading = true;
     },
@@ -41,7 +41,7 @@ const contactsReducer = createSlice({
       state.contacts.isLoading = false;
       state.contacts.error = payload;
     },
-    // delete contact
+    // delete 
     [deleteContact.pending]: state => {
       state.contacts.isLoading = true;
     },

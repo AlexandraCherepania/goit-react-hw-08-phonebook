@@ -1,7 +1,7 @@
 import React from 'react';
+// import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { SearchByName } from 'redux/contacts/contactsReducer';
-import TextField from '@mui/material/TextField';
+import { SearchByName } from '../../redux/contactReducer';
 import css from '../Filter/Filter.module.css';
 
 export const Filter = () => {
@@ -12,17 +12,17 @@ export const Filter = () => {
   };
 
   return (
-    <div className={css.container}>
-      <TextField
-        id="outlined-search"
-        label="Search field"
-        type="search"
-        name="filter"
-        pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-        title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-        required
-        onChange={filterOnChange}
-      />
-    </div>
-  );
-};
+    <label className={css.label}>
+    Find contacts by name
+    <input
+      className={css.imputName}
+      type="text"
+      name="filter"
+      pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+      title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+      required
+      onChange={filterOnChange}
+    />
+  </label>
+  )
+}

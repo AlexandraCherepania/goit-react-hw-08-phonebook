@@ -1,9 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { getContacts } from 'redux/contacts/selectors';
-import { addContact } from 'redux/contacts/contactOperation';
+import { getContacts } from '../../redux/selectors';
+import { addContact } from '../../redux/contactOperation';
 import css from '../ContactForm/ContactForm.module.css';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import { nanoid } from '@reduxjs/toolkit';
 
 export function ContactForm() {
   const dispatch = useDispatch();
@@ -19,23 +18,24 @@ export function ContactForm() {
       return;
     }
 
-    dispatch(
-      addContact({
-        name: name.value,
-        number: number.value,
-      })
-    );
+    const data = {
+      createdAt: new Date().toISOString(),
+      name: name.value,
+      phone: number.value,
+      id: nanoid(),
+    };
+
+    dispatch(addContact(data));
 
     e.target.reset();
   };
 
   return (
-    <form className={css.container} onSubmit={handleSubmit}>
-      <div className={css.form}>
-        <TextField
-          id="outlined-basic"
-          label="Name"
-          variant="outlined"
+    <form onSubmit={handleSubmit}>
+      <label className={css.labelName}>
+        <span className={css.spanName}>Name</span>
+        <input
+          className={css.imputName}
           type="text"
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
@@ -43,21 +43,22 @@ export function ContactForm() {
           required
         />
 
-        <TextField
-          id="outlined-basic"
-          label="Number"
-          variant="outlined"
-          type="tel"
-          name="number"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-          required
-        />
+        <label className={css.labelNumber}>
+          <span className={css.spanNumber}>Number</span>
 
-        <Button type="submit" variant="contained" disableElevation>
+          <input
+            className={css.imputName}
+            type="tel"
+            name="number"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
+          />
+        </label>
+        <button type="submit" className={css.buttonSubmit}>
           Add contact
-        </Button>
-      </div>
+        </button>
+      </label>
     </form>
   );
 }
